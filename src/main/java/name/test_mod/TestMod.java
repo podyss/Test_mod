@@ -1,5 +1,8 @@
 package name.test_mod;
 
+import name.test_mod.registry.ModBlocks;
+import name.test_mod.registry.ModItemGroups;
+import name.test_mod.registry.ModItems;
 import net.fabricmc.api.ModInitializer;
 
 import org.slf4j.Logger;
@@ -9,6 +12,7 @@ public class TestMod implements ModInitializer {
 	// This logger is used to write text to the console and the log file.
 	// It is considered best practice to use your mod id as the logger's name.
 	// That way, it's clear which mod wrote info, warnings, and errors.
+	public static final String MOD_ID = "test-mod";
     public static final Logger LOGGER = LoggerFactory.getLogger("test-mod");
 
 	@Override
@@ -19,5 +23,8 @@ public class TestMod implements ModInitializer {
 
 
 		LOGGER.info("Hello Minecraft!");
+		ModItems.registerModItems();
+		ModItemGroups.registerItemGroups();
+		ModBlocks.registerModBlocks();
 	}
 }
